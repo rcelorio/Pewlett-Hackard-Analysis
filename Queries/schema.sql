@@ -26,22 +26,18 @@ TABLESPACE pg_default;
 ALTER TABLE public."Dept_Emp"
     OWNER to postgres;
 
--- Table: public."Managers"
+-- Table: public.titles
 
--- DROP TABLE public."Managers";
+-- DROP TABLE public.titles;
 
-CREATE TABLE public."Managers"
+CREATE TABLE public.titles
 (
-    dept_no character varying(4) COLLATE pg_catalog."default" NOT NULL,
     emp_no integer NOT NULL,
+    title character varying(40) COLLATE pg_catalog."default" NOT NULL,
     from_date date NOT NULL,
     to_date date NOT NULL,
-    CONSTRAINT "Managers_pkey" PRIMARY KEY (emp_no, dept_no),
-    CONSTRAINT "Managers_dept_no_fkey" FOREIGN KEY (dept_no)
-        REFERENCES public.departments (dept_no) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT "Managers_emp_no_fkey" FOREIGN KEY (emp_no)
+    CONSTRAINT titles_pkey PRIMARY KEY (emp_no, from_date, to_date),
+    CONSTRAINT titles_emp_no_fkey FOREIGN KEY (emp_no)
         REFERENCES public.employees (emp_no) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
@@ -51,10 +47,8 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Managers"
-    OWNER to postgres;
-
--- Table: public.departments
+ALTER TABLE public.titles
+    OWNER to postgres;-- Table: public.departments
 
 -- DROP TABLE public.departments;
 
