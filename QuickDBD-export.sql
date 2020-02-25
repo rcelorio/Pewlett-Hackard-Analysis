@@ -24,7 +24,7 @@ CREATE TABLE "Employees" (
 
 CREATE TABLE "Dept_Emp" (
     "emp_no" int   NOT NULL,
-    "dept_no" varchar   NOT NULL,
+    "dept_no" varchar(4)   NOT NULL,
     "from_date" date   NOT NULL,
     "to_date" date   NOT NULL,
     CONSTRAINT "pk_Dept_Emp" PRIMARY KEY (
