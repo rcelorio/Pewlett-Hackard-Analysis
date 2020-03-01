@@ -2,14 +2,14 @@
     A case study in database modeling and SQL using PostgreSQL relational database engine. 
 
 ## Project Summary
-The company Pewlett Hackard has a number of employees approching retirement age. This analysis use basic to intermidiate SQL queries to identify these employees as well as employees ready to mentor others. The entitry relationship diagram below shows the end state of the database required to complete the challenge. The queries and sample output section shows how we approched the challenge and the result of the queries. 
+The company Pewlett Hackard has several employees approaching retirement age. This analysis uses basic to intermediate SQL queries to identify these employees as well as employees ready to mentor others. The entity relationship diagram below show the end state of the database required to complete the challenge. The queries and sample output section shows how we approached the challenge and the result of the queries. 
 
 ## Entity Relationship Diagram
 ![Employee Database ERD](CHALLENGE_EmployeeDB.png)
 
 ## Challenge Queries and Sample Output
 ### Number of [titles] Retiring
-This query uses inner joins to the employees, titles and salary tables to extract the required data point. The employees table  has a one to many relationship with the title table which creates duplicates in the dataset.
+This query uses inner joins to the employees, titles and salary tables to extract the required data point. The employees table has a one to many relationship with the title table which creates duplicates in the dataset.
 #### Query
 select ri.emp_no, ri.first_name, ri.last_name, t.title, t.from_date, s.salary
 into number_of_titles_with_dupes
@@ -48,7 +48,7 @@ WHERE
 ![number_of_titles_without_dupes.csv](Data/CHALLENGE_number_of_titles_without_dupes.csv)
 
 ### Who’s Ready for a Mentor?
-The company is lookinig to identify employees ready to share work experience through mentorships. The query below identifies current employees born in 1965. We use a subquery instead of a CTE to eliminate duplicates since we did not neeed to reuse the dataset as in the above query. 
+The company is looking to identify employees ready to share work experience through mentorships. The query below identifies current employees born in 1965. We use a subquery instead of a CTE to eliminate duplicates since we did not need to reuse the dataset as in the above query. 
 
 #### Query
 select tm.emp_no, tm.first_name, tm.last_name, tm.title, tm.from_date , tm.to_date
