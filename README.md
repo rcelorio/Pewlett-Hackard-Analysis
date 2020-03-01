@@ -20,7 +20,7 @@ from retirement_info ri
     on ri.emp_no = s.emp_no
 #### Output
 ![number_of_titles_with_dupes](ntwd.png)
-![number_of_titles_with_dupes](CHALLENGE_number_of_titles_with_dupes.csv)
+![number_of_titles_with_dupes](Data/CHALLENGE_number_of_titles_with_dupes.csv)
 
 ### Only the Most Recent Titles
 In this query we remove the duplicates from the dataset above using a partion statement. We used a CTE to facilitate the frequency count of employee titles. We made an assumption that the count should only include current title and not titles previously held by the same employee. 
@@ -45,7 +45,7 @@ WHERE
 
 #### Output
 ![number_of_titles_without_dupes](ntwod.png)
-![number_of_titles_with_dupes](CHALLENGE_number_of_titles_without_dupes.csv)
+![number_of_titles_with_dupes](Data/CHALLENGE_number_of_titles_without_dupes.csv)
 
 
 
