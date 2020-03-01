@@ -8,6 +8,9 @@ from retirement_info ri
     on ri.emp_no = t.emp_no
     inner join salaries s
     on ri.emp_no = s.emp_no
+	inner join dept_emp de
+	on ri.emp_no = de.emp_no
+	where de.to_date = '9999-01-01'
 
 -- Remove dupes by partinioning on employee first and last then select the first row number of the partition usint CTE
 with UN as (SELECT emp_no, first_name, last_name, title, from_date, salary, 
